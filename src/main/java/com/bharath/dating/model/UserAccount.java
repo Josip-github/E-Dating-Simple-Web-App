@@ -1,9 +1,6 @@
 package com.bharath.dating.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class UserAccount {
@@ -19,5 +16,8 @@ public class UserAccount {
     private String gender;
     private String city;
     private String country;
+    @OneToOne(mappedBy = "userAccount")
+    private Interest interest;
+
 
 }
