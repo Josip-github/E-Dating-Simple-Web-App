@@ -36,4 +36,9 @@ public class UserAccountController {
     public List<UserAccount> getUsers(){
         return userAccountRepository.findAll();
     }
+
+    @DeleteMapping("/users/delete/{interestId}")
+    public void deleteInterest(@PathVariable("interestId") Integer id){
+        interestRepository.deleteById(id);
+    }
 }
