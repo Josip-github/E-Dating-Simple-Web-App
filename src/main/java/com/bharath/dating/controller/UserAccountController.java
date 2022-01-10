@@ -5,11 +5,9 @@ import com.bharath.dating.model.UserAccount;
 import com.bharath.dating.repository.InterestRepository;
 import com.bharath.dating.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -32,5 +30,10 @@ public class UserAccountController {
         Optional<UserAccount> userAccount = userAccountRepository.findById(interest.getUserAccountId());
         interest.setUserAccount(userAccount.get());
         return interestRepository.save(interest);
+    }
+
+    @GetMapping("/users/get/all")
+    public List<UserAccount> getUsers(){
+        return userAccountRepository.findAll();
     }
 }

@@ -1,6 +1,7 @@
 package com.bharath.dating.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Interest {
     private Integer userAccountId;
     @OneToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private UserAccount userAccount;
 
 }
