@@ -23,6 +23,8 @@ public class Interest {
     private String hobbies;
     private String profileUrl;
     private String about;
+    @Transient
+    private Integer userAccountId;
     @OneToOne
     @JoinColumn(name = "user_id")
     private UserAccount userAccount;
