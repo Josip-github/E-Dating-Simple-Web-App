@@ -41,4 +41,11 @@ public class UserAccountController {
     public void deleteInterest(@PathVariable("interestId") Integer id){
         interestRepository.deleteById(id);
     }
+
+    @GetMapping("/users/matches/{id}")
+    public List<UserAccount> findMatches(@PathVariable("id") Integer id){
+        UserAccount userAccount = userAccountRepository.findById(id).get();
+        return userAccountRepository.findMatches(userAccount.getAge(),
+                userAccount.getCity(), userAccount.getCountry(), userAccount.getId());
+    }
 }
